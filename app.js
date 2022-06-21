@@ -1,31 +1,37 @@
 let carrito = [];
 
-const producto1 = new NuevoObjeto (1,"remera",100);
-const producto2 = new NuevoObjeto (2,"camisa",150);
-const producto3 = new NuevoObjeto (3,"pantalon",140);
-const producto4 = new NuevoObjeto (4,"campera",200);
-const producto5 = new NuevoObjeto (5,"chaleco",300);
+const search = document.getElementById('search');
+const contenedor = document.getElementById ('contenedor');
 
+function todosLosProductos(){
 
-let entrada = prompt("Bienvenido. Que producto te interesa? \n" + producto1.nombre + "\n" + producto2.nombre + "\n" + producto3.nombre + "\n" + producto4.nombre + "\n" + producto5.nombre);
+    catalogo.forEach(el => {
+        let div = document.createElement('div')
 
+        div.className = 'producto'
 
+        div.innerHTML = `<div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${el.nombre}</h5>
+          <p class="card-text">¡Adquiere el tuyo ahora!</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">${el.color}</li>
+          <li class="list-group-item">${el.Precio}</li>
+          <li class="list-group-item">${el.stock}</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Añadir al Carrito</a>
+        </div>
+      </div>`
 
-function NuevoObjeto (id,nombre,valor){
-    this.id = id;
-    this.nombre = nombre;
-    this.valor = valor;
-}
+      contenedor.appendChild(div)
+    })
+};
 
+console.log(contenedor);
 
-
-let array = [producto1,producto2,producto3,producto4,producto5];
-
-let encuentraProducto = array.find(el => el.nombre === entrada );
-
-carrito.push(encuentraProducto);
-
-console.log(carrito);
 
 
 
