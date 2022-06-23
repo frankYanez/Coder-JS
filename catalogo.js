@@ -1,5 +1,5 @@
 const catalogo = [
-    {id:1 , nombre: "Remera", color: "Negra" , Precio: 800, img: '/images/remera' ,stock: 3},
+    {id:1 , nombre: "Remera", color: "Negra" , Precio: 800, img: '/images/remeras.jpg' ,stock: 3},
     {id:2 , nombre: "Remera", color: "Roja" , Precio: 800, stock: 3},
     {id:3 , nombre: "Remera", color: "Blanca" , Precio: 800, stock: 3},
     {id:4 , nombre: "Remera", color: "Azul" , Precio: 800, stock: 3},
@@ -18,5 +18,5 @@ const catalogo = [
     {id:17, nombre: "Campera", color: "Negra" , Precio: 800, stock: 3},
     {id:18, nombre: "Campera", color: "Negra" , Precio: 800, stock: 3},
     {id:19, nombre: "Campera", color: "Gris" , Precio: 800, stock: 3},
-    {id:20, nombre: "Campera", color: "Negra" , Precio: 800, stock: 3},
-]
+    {id:20, nombre: "Campera", color: "Negra" , Precio: 800, stock: 3}
+];

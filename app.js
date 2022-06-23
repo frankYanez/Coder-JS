@@ -1,17 +1,40 @@
 let carrito = [];
 
 const search = document.getElementById('search');
-const contenedor = document.getElementById ('contenedor');
+const contenedor = document.getElementById ("contenedor");
+const seleColor = document.getElementById ("seleColor");
 
-function todosLosProductos(){
+seleColor.addEventListener('change',()=>{
+  console.log(seleColor.value);
+  if(seleColor.value == 'todos'){
+    todosLosProductos(catalogo)
+  } else {
+    todosLosProductos(catalogo.filter(el => el.color == seleColor.value))
+  }
+});
 
-    catalogo.forEach(el => {
+
+
+
+todosLosProductos(catalogo);
+
+
+
+function todosLosProductos(array){
+
+
+
+  contenedor.innerHTML = "";
+
+
+
+    array.forEach(el => {
         let div = document.createElement('div')
 
         div.className = 'producto'
 
         div.innerHTML = `<div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${el.nombre}</h5>
           <p class="card-text">¡Adquiere el tuyo ahora!</p>
@@ -28,9 +51,13 @@ function todosLosProductos(){
 
       contenedor.appendChild(div)
     })
-};
 
-console.log(contenedor);
+}
+
+
+
+
+
 
 
 
