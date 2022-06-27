@@ -3,6 +3,7 @@ let carrito = [];
 const search = document.getElementById('search');
 const contenedor = document.getElementById ("contenedor");
 const seleColor = document.getElementById ("seleColor");
+const carritoCompras = document.getElementById("carrito")
 
 seleColor.addEventListener('change',()=>{
   console.log(seleColor.value);
@@ -45,17 +46,39 @@ function todosLosProductos(array){
           <li class="list-group-item">${el.stock}</li>
         </ul>
         <div class="card-body">
-          <a href="#" class="card-link">Añadir al Carrito</a>
+          <a id="boton ${el.id}" href="#" class="card-link">Añadir al Carrito</a>
         </div>
       </div>`
 
       contenedor.appendChild(div)
+
+      let btnAgregar = document.getElementById(`boton ${el.id}`);
+
+      btnAgregar.addEventListener('click', ()=>{
+        agregarCarrito(el.id);
+      });
     })
 
+};
+
+function agregarCarrito(id){
+  let agregarProducto = catalogo.find(el => el.id == id)
+  console.log(agregarProducto);
+  carrito.push(agregarProducto);
+
+  mostrarCarrito(agregarProducto);
 }
 
 
+function mostrarCarrito(agregarProducto){
+  let div = document.createElement('div')
 
+  div.innerHTML= `<p>${agregarProducto.nombre}</p>
+  <p>Precio: ${agregarProducto.Precio}</p>
+  <button class="btn-eliminar btn-dark text-danger">Borrar</button>`
+
+  carritoCompras.appendChild(div);
+};
 
 
 
